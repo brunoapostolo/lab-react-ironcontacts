@@ -17,10 +17,27 @@ function AddRandom(){
         setLista([contacts[qualquerum],... lista ])
     }
 
+
+    function ordemAlfabetica(e){
+        e.preventDefault()
+        setLista([...lista].sort((a,b)=>{
+            return a.name - b.name;
+        }))
+    }
+    function sortByPopularity(e){
+        e.preventDefault()
+        setLista([...lista].sort((a,b)=>{
+            return a.popularity - b.popularity;
+        }))
+    }
+    console.log(lista[0].name)
+
     return(
         <>
+            <button onClick={sortByPopularity}>Sort by popularity</button>
+            <button onClick={ordemAlfabetica}>Sort by name</button>
             <button onClick={aleatorio}>Gere o perfil de um famoso aleatório</button>
-            <DisplayAllContacts lista={lista}/>
+            <DisplayAllContacts lista={lista} setLista={setLista}/>
         </>
     )
 }
