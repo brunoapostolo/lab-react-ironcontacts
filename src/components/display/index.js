@@ -1,6 +1,13 @@
 import trofeu from "../../assets/1f3c6.png"
 
-function DisplayEachContact ({famoso}){
+function DisplayEachContact ({famoso,setLista,lista}){
+    function deletarFamoso(){
+        let filtradoDelete = lista.filter((element)=>{
+            return element.name!==famoso.name
+        })
+        setLista(filtradoDelete)
+
+    }
     return (
         <div style={{display:"flex" , flexDirection: "row"}} className="linha">
             <div style={{display: "flex", flexDirection:"column", margin:"20px"}} className="coluna">
@@ -26,6 +33,7 @@ function DisplayEachContact ({famoso}){
                 {famoso.wonEmmy &&
                 <img style={{height:"80px", width:"80px"}} src={trofeu}/>}
             </div>
+            <button style={{height:"90px", alignItems:'center', margin:"auto"}} onClick={deletarFamoso}>Delete</button>
         </div>
     )
 }

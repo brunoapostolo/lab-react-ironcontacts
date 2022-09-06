@@ -7,8 +7,7 @@ function DisplayAllContacts ({lista,setLista}){
             {lista.map((celebridade)=>{
                 return (
                     <>
-                        <DisplayEachContact famoso={celebridade}/>
-                        <button  >delete</button>
+                        <DisplayEachContact famoso={celebridade} setLista={setLista} lista={lista} />
                     </>
                 )
                 

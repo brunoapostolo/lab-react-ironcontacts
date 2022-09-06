@@ -21,7 +21,7 @@ function AddRandom(){
     function ordemAlfabetica(e){
         e.preventDefault()
         setLista([...lista].sort((a,b)=>{
-            return a.name - b.name;
+            return a.name.localeCompare(b.name);
         }))
     }
     function sortByPopularity(e){
