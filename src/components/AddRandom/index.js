@@ -1,17 +1,26 @@
 import { useState } from "react"
-import DisplayContacts from "../display"
+import DisplayEachContact from "../display"
+import contacts from "../../contacts.json"
+import DisplayAllContacts from "../Displayallcontacts"
 
-function AddRandom({famosos}){
+
+
+function AddRandom(){
     const [qualquerum , setRandom] = useState(10)
+    const [lista, setLista] = useState(contacts.slice(0,5))
 
-    function aleatorio (){
-        setRandom(Math.floor(Math.random()*famosos.length))
+
+
+    function aleatorio (e){
+        e.preventDefault()
+        setRandom(Math.floor(Math.random()*contacts.length))
+        setLista([contacts[qualquerum],... lista ])
     }
 
     return(
         <>
-            <button onClick={aleatorio}>Clique aqui</button>
-            <DisplayContacts famoso={famosos[qualquerum]}/>
+            <button onClick={aleatorio}>Gere o perfil de um famoso aleatório</button>
+            <DisplayAllContacts lista={lista}/>
         </>
     )
 }
